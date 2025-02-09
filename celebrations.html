@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book a Room | Vinnie Inti Ruchulu</title>
+    <style>
+        /* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #FFF5E1; /* Soft Beige */
+    text-align: center;
+    padding: 150px;
+}
+
+/* Booking Container */
+.booking-container {
+    background: white;
+    max-width: 500px;
+    margin: auto;
+    padding: 90px;
+    border-radius: 10px;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Heading */
+h2 {
+    color: #B22222; /* Firebrick Red */
+    margin-bottom: 10px;
+}
+
+/* Input Fields */
+input, select, textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Submit Button */
+button {
+    background: #B22222; /* Firebrick Red */
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+button:hover {
+    background: #8B0000;
+}
+
+    </style>
+</head>
+<body>
+
+    <div class="booking-container">
+        <h2>🎉 Celebrate in Style! 🎉</h2>
+        <p>Book a private dining room for your special occasion.</p>
+
+        <form id="celebration-form">
+            <!-- Name -->
+            <input type="text" id="name" placeholder="Full Name" required>
+
+            <!-- Contact Number -->
+            <input type="tel" id="phone" placeholder="Phone Number" required>
+
+            <!-- Date -->
+            <input type="date" id="date" required>
+
+            <!-- Time -->
+            <input type="time" id="time" required>
+
+            <!-- Number of Guests -->
+            <select id="guests" required>
+                <option value="" disabled selected>Number of Guests</option>
+                <option value="10-20">10-20</option>
+                <option value="21-30">21-30</option>
+                <option value="31-50">31-50</option>
+                <option value="50+">50+</option>
+            </select>
+
+            <!-- Occasion -->
+            <select id="occasion" required>
+                <option value="" disabled selected>Select Occasion</option>
+                <option value="Birthday">Birthday Party</option>
+                <option value="Anniversary">Anniversary</option>
+                <option value="Corporate">Corporate Event</option>
+                <option value="Engagement">Engagement</option>
+                <option value="Other">Other</option>
+
+
+            </select>
+
+            <!-- Additional Requests -->
+            <textarea id="requests" placeholder="Any special requests? (Optional)"></textarea>
+
+            <!-- Submit Button -->
+            <button type="submit">Reserve Now</button>
+
+            <!-- Confirmation Message -->
+            <p id="confirmation-message" style="display:none; color: green; font-weight: bold;">
+                Your room has been booked successfully! 🎉
+            </p>
+        </form>
+    </div>
+    <div id="navbar"></div>
+<script>
+    fetch('navbar.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('navbar').innerHTML = data;
+        });
+</script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+    const form = document.getElementById("celebration-form");
+    const confirmationMessage = document.getElementById("confirmation-message");
+
+    form.addEventListener("submit", function(event) {
+        event.preventDefault(); // Prevent form submission
+
+        // Validate inputs
+        const name = document.getElementById("name").value;
+        const phone = document.getElementById("phone").value;
+        const date = document.getElementById("date").value;
+        const time = document.getElementById("time").value;
+        const guests = document.getElementById("guests").value;
+        const occasion = document.getElementById("occasion").value;
+
+        if (name && phone && date && time && guests && occasion) {
+            confirmationMessage.style.display = "block";
+            setTimeout(() => {
+                confirmationMessage.style.display = "none";
+                form.reset();
+            }, 3000);
+        } else {
+            alert("Please fill out all the details!");
+        }
+    });
+});
+
+    </script>
+
+</body>
+</html>

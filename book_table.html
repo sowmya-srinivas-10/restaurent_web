@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book a Table | Vinnie Inti Ruchulu</title>
+    <style>
+        /* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #FFF5E1; /* Soft Beige */
+    text-align: center;
+    padding: 150px;
+   
+}
+
+/* Booking Container */
+.booking-container {
+    background: white;
+    max-width: 400px;
+    margin: auto;
+    padding: 100px;
+    border-radius: 10px;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Heading */
+h2 {
+    color: #B22222; /* Firebrick Red */
+    margin-bottom: 10px;
+}
+
+/* Input Fields */
+input, select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Submit Button */
+button {
+    background: #B22222; /* Firebrick Red */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+button:hover {
+    background: #8B0000;
+}
+
+    </style>
+</head>
+<body>
+
+    <div class="booking-container">
+        <h2>Reserve Your Table 🍽️</h2>
+        <p>Enjoy an amazing dining experience with us!</p>
+
+        <form id="booking-form">
+            <!-- Name -->
+            <input type="text" id="name" placeholder="Full Name" required>
+
+            <!-- Contact Number -->
+            <input type="tel" id="phone" placeholder="Phone Number" required>
+
+            <!-- Date -->
+            <input type="date" id="date" required>
+
+            <!-- Time -->
+            <input type="time" id="time" required>
+
+            <!-- Number of Guests -->
+            <select id="guests" required>
+                <option value="" disabled selected>Number of Guests</option>
+                <option value="1">1 Person</option>
+                <option value="2">2 People</option>
+                <option value="3">3 People</option>
+                <option value="4">4 People</option>
+                <option value="5">5 People</option>
+                <option value="6">6 People</option>
+                <option value="7">7 People</option>
+                <option value="8+">8+ People</option>
+            </select>
+
+            <!-- Submit Button -->
+            <button type="submit">Book Now</button>
+
+            <!-- Confirmation Message -->
+            <p id="confirmation-message" style="display:none; color: green; font-weight: bold;">
+                Your table has been booked successfully! 🎉
+            </p>
+        </form>
+    </div>
+    <div id="navbar"></div>
+<script>
+    fetch('navbar.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('navbar').innerHTML = data;
+        });
+</script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+    const form = document.getElementById("booking-form");
+    const confirmationMessage = document.getElementById("confirmation-message");
+
+    form.addEventListener("submit", function(event) {
+        event.preventDefault(); // Prevent form submission
+
+        // Validate inputs
+        const name = document.getElementById("name").value;
+        const phone = document.getElementById("phone").value;
+        const date = document.getElementById("date").value;
+        const time = document.getElementById("time").value;
+        const guests = document.getElementById("guests").value;
+
+        if (name && phone && date && time && guests) {
+            confirmationMessage.style.display = "block";
+            setTimeout(() => {
+                confirmationMessage.style.display = "none";
+                form.reset();
+            }, 3000);
+        } else {
+            alert("Please fill out all the details!");
+        }
+    });
+});
+
+    </script>
+
+</body>
+</html>

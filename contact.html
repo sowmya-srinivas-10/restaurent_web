@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Vinshi Vantillu</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <!-- FontAwesome for Icons -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+    <style>
+        /* General Reset */
+        * {
+            margin: 50;
+            padding: 80;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+            margin-top:  100px;
+            margin-bottom: 150px;
+        }
+
+        /* Body Styling */
+        body {
+            background-color: #FFF5E1; /* Soft Cream */
+            text-align: center;
+            padding: 100px;
+            margin-top: 80px;
+        }
+
+        /* Contact Form Container */
+        .contact-container {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15);
+            max-width: 500px;
+            margin: auto;
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        h1 {
+            font-size: 34px;
+            color: #B22222;
+            margin-bottom: 30px;
+            font-weight: 700;
+        }
+
+        p {
+            font-size: 18px;
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        /* Form Styling */
+        .contact-form input, 
+        .contact-form textarea {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 30px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 16px;
+            transition: all 0.3s;
+        }
+
+        .contact-form input:focus, 
+        .contact-form textarea:focus {
+            border-color: #B22222;
+            outline: none;
+            box-shadow: 0 0 5px rgba(178, 34, 34, 0.5);
+        }
+
+        .contact-form button {
+            background: #B22222;
+            color: white;
+            font-size: 18px;
+            padding: 12px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s;
+            width: 100%;
+        }
+
+        .contact-form button:hover {
+            background: #8B0000;
+            transform: scale(1.05);
+        }
+
+        /* Thank You Message Styling */
+        .thank-you {
+            display: none;
+            background-color: #FFF5E1;
+            color: #333;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15);
+            max-width: 500px;
+            margin: auto;
+            text-align: center;
+            opacity: 0;
+            transition: opacity 0.8s ease-in-out;
+        }
+
+        .thank-you h2 {
+            font-size: 28px;
+            margin-bottom: 10px;
+            color: #B22222;
+        }
+
+        .thank-you p {
+            font-size: 18px;
+            color: #444;
+            margin-bottom: 10px;
+        }
+
+        /* Typing effect */
+        .typing {
+            display: inline-block;
+            overflow: hidden;
+            white-space: nowrap;
+            border-right: 2px solid #B22222;
+            width: 0;
+            animation: typing 3s steps(30, end) forwards;
+        }
+
+        @keyframes typing {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+
+        /* Separator Line */
+        .separator {
+            border: none;
+            height: 2px;
+            background: #B22222;
+            width: 50px;
+            margin: 15px auto;
+        }
+
+        /* Social Links */
+        .social-links {
+            margin-top: 15px;
+        }
+
+        .social-links p {
+            font-size: 18px;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .social-links a {
+            text-decoration: none;
+            color: #B22222;
+            font-size: 24px;
+            margin: 0 10px;
+            transition: 0.3s;
+        }
+
+        .social-links a:hover {
+            color: #8B0000;
+            transform: scale(1.2);
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Contact Form -->
+    <div class="contact-container" id="contactForm">
+        <h1>Contact Us</h1>
+        <p>Have a question? We're here to help!</p>
+        <form class="contact-form" onsubmit="return showThankYou(event)">
+            <input type="text" id="name" placeholder="Your Name" required>
+            <input type="email" id="email" placeholder="Your Email" required>
+            <textarea id="message" rows="4" placeholder="Your Message" required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+    </div>
+    <form class="contact-form" action="https://docs.google.com/forms/d/e/1FAIpQLSf7VdFDsbvQEKMJ7VK01QEWX9C4YHN_AMb0jGOpCFFRU9onjg/formResponse">
+        <input type="text" name="entry.YOUR_NAME_ENTRY_ID" id="name" placeholder="Your Name" required>
+        <input type="email" name="entry.YOUR_EMAIL_ENTRY_ID" id="email" placeholder="Your Email" required>
+        <textarea name="entry.YOUR_MESSAGE_ENTRY_ID" id="message" rows="4" placeholder="Your Message" required></textarea>
+        <button type="submit">Send Message</button>
+    </form>
+
+    <!-- Hidden iframe to prevent redirection -->
+    <iframe name="hidden_iframe" style="display: none;"></iframe>
+
+    <!-- Thank You Message -->
+    <div class="thank-you" id="thankYouMessage">
+        <h2 class="typing">Thank You for Reaching Out!</h2>
+        <p>Your message has been received.</p>
+        <p>Our team will get back to you soon.</p>
+
+        <hr class="separator">
+        
+        <p class="brand-line">✨ Experience the Magic of Vinnie Inti Ruchulu ✨</p>
+        
+        <p class="brand-line">🍽️ Where Every Bite Feels Like Home! 🍽️</p>
+
+        <!-- Social Media Links -->
+        <div class="social-links">
+            <p>Follow us on:</p>
+            <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
+            <a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+        </div>
+    </div>
+    <div id="navbar"></div>
+<script>
+    fetch('navbar.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('navbar').innerHTML = data;
+        });
+</script>
+
+
+
+    <!-- JavaScript to Handle Form Submission -->
+    <script>
+        function showThankYou(event) {
+            event.preventDefault(); // Prevent form submission
+            
+            let name = document.getElementById('name').value.trim();
+            let email = document.getElementById('email').value.trim();
+            let message = document.getElementById('message').value.trim();
+            
+            if (name === "" || email === "" || message === "") {
+                alert("Please fill in all the fields.");
+                return false;
+            }
+            
+            document.getElementById('contactForm').style.opacity = '0';
+            setTimeout(() => {
+                document.getElementById('contactForm').style.display = 'none';
+                let thankYouMessage = document.getElementById('thankYouMessage');
+                thankYouMessage.style.display = 'block';
+                setTimeout(() => {
+                    thankYouMessage.style.opacity = '1';
+                }, 100);
+            }, 500);
+            
+            return false; 
+        }
+    </script>
+
+</body>
+</html>

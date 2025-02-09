@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vinnie Inti Ruchulu | Cart</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 100px;
+            background: linear-gradient(135deg, white);
+        }
+
+        .cart-heading {
+            font-size: 26px;
+            font-weight: 700;
+            color: #B22222;
+            text-align: center;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+        }
+
+        .cart-container {
+            width: 100%;
+            max-width: 600px;
+            background: white;
+            padding: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            border-radius: 15px;
+            text-align: center;
+        }
+
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .cart-item img {
+            width: 50px;
+            height: 50px;
+            border-radius: 8px;
+        }
+
+        .item-details {
+            flex: 1;
+            text-align: left;
+            margin-left: 15px;
+        }
+
+        .remove-btn {
+            background: #B22222;
+            color: white;
+            border: none;
+            padding: 6px 12px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .remove-btn:hover {
+            background: #8B0000;
+        }
+
+        .total {
+            font-size: 20px;
+            font-weight: 600;
+            margin-top: 15px;
+            color: #B22222;
+        }
+
+        .checkout-btn {
+            width: 100%;
+            padding: 12px;
+            background: #B22222;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 18px;
+            transition: 0.3s;
+            margin-top: 10px;
+        }
+
+        .checkout-btn:hover {
+            background: #8B0000;
+        }
+        .coupon-container {
+            margin: 15px 0;
+        }
+
+        .coupon-input {
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 60%;
+        }
+
+        .apply-btn {
+            background: #B22222;
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .apply-btn:hover {
+            background: #8B0000;
+        }
+
+    </style>
+</head>
+<body>
+    <h2 class="cart-heading">🛒 Your Shopping Cart</h2>
+    <a href="menu.html" class="back-button">🔙 Back to Menu</a>
+
+
+
+    <div class="cart-container" id="cart">
+        <!-- Dynamic Cart Items will be inserted here -->
+    </div>
+    <div class="coupon-container">
+        <input type="text" id="coupon" class="coupon-input" placeholder="Enter Coupon Code">
+        <button class="apply-btn" onclick="applyCoupon()">Apply</button>
+    </div>
+
+    <div id="navbar"></div>
+    <script>
+        fetch('navbar.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('navbar').innerHTML = data;
+            });
+    </script>
+    <script>
+        let cartItems = [
+            { id: 1, name: "Biriyani", price: 199, img: "biriyani.jpg" },
+            { id: 2, name: "Paneer Butter Masala", price: 249, img: "paneer.jpg" }
+        ];
+        let couponApplied = false;
+
+        function updateCart() {
+            const cartContainer = document.getElementById("cart");
+            cartContainer.innerHTML = "";
+
+            if (cartItems.length === 0) {
+                cartContainer.innerHTML = "<p>Your cart is empty.</p>";
+                return;
+            }
+
+            let subtotal = 0;
+            cartItems.forEach((item, index) => {
+                subtotal += item.price;
+                cartContainer.innerHTML += `
+                    <div class="cart-item">
+                        <img src="${item.img}" alt="${item.name}">
+                        <div class="item-details">
+                            <p>${item.name}</p>
+                            <p>₹${item.price}</p>
+                        </div>
+                        <button class="remove-btn" onclick="removeItem(${index})">Remove</button>
+                    </div>
+                `;
+            });
+            
+            let tax = subtotal * 0.10;
+            let deliveryCharge = 40;
+            let discount = couponApplied ? 50 : 0;
+            let totalAmount = subtotal + tax + deliveryCharge - discount;
+
+            cartContainer.innerHTML += `
+                <p class="total">Subtotal: ₹${subtotal.toFixed(2)}</p>
+                <p class="total">GST (10%): ₹${tax.toFixed(2)}</p>
+                <p class="total">Delivery Charge: ₹${deliveryCharge}</p>
+                ${couponApplied ? '<p class="total" style="color:green;">Discount Applied: -₹50</p>' : ''}
+                <p class="total">Total: ₹${totalAmount.toFixed(2)}</p>
+                <button class="checkout-btn" onclick="checkout()">Proceed to Payment</button>
+            `;
+        }
+
+        function removeItem(index) {
+            cartItems.splice(index, 1);
+            updateCart();
+        }
+
+        function applyCoupon() {
+            const couponInput = document.getElementById("couponCode").value;
+            if (couponInput === "SAVE50") {
+                couponApplied = true;
+                alert("Coupon Applied! You saved ₹50");
+            } else {
+                alert("Invalid Coupon Code");
+            }
+            updateCart();
+        }
+
+        function checkout() {
+            alert("Proceeding to Payment!");
+            // Redirect to payment gateway or checkout page
+        }
+
+        updateCart();
+    </script>
+    <script>
+        function updateCart() {
+            const cartContainer = document.getElementById("cart");
+            let cartItems = JSON.parse(localStorage.getItem("cart")) || [];
+    
+            cartContainer.innerHTML = ""; // Clear previous content
+    
+            if (cartItems.length === 0) {
+                cartContainer.innerHTML = "<p>Your cart is empty.</p>";
+                return;
+            }
+    
+            let totalPrice = 0;
+            cartItems.forEach((item, index) => {
+                totalPrice += item.price;
+    
+                cartContainer.innerHTML += `
+                    <div class="cart-item">
+                        <img src="${item.img}" alt="${item.name}">
+                        <div class="item-details">
+                            <p>${item.name}</p>
+                            <p>₹${item.price}</p>
+                        </div>
+                        <button class="remove-btn" onclick="removeItem(${index})">Remove</button>
+                    </div>
+                `;
+            });
+    
+            let tax = totalPrice * 0.05; // 5% tax
+            let deliveryCharge = totalPrice > 500 ? 0 : 40; // Free delivery if > ₹500
+            let finalAmount = totalPrice + tax + deliveryCharge;
+    
+            cartContainer.innerHTML += `
+                <p class="total">Subtotal: ₹${totalPrice}</p>
+                <p class="total">Tax (5%): ₹${tax.toFixed(2)}</p>
+                <p class="total">Delivery Charges: ₹${deliveryCharge}</p>
+                <input type="text" id="couponCode" placeholder="Enter Coupon Code">
+                <button onclick="applyCoupon()">Apply Coupon</button>
+                <p id="discountMsg"></p>
+                <p class="total"><strong>Final Total: ₹<span id="finalTotal">${finalAmount.toFixed(2)}</span></strong></p>
+                <button class="checkout-btn" onclick="checkout()">Proceed to Payment</button>
+            `;
+        }
+    
+        function removeItem(index) {
+            let cart = JSON.parse(localStorage.getItem("cart")) || [];
+            cart.splice(index, 1); // Remove selected item
+            localStorage.setItem("cart", JSON.stringify(cart)); // Save updated cart
+            updateCart(); // Refresh cart display
+        }
+    
+        function applyCoupon() {
+            let cartItems = JSON.parse(localStorage.getItem("cart")) || [];
+            let totalPrice = cartItems.reduce((sum, item) => sum + item.price, 0);
+            let tax = totalPrice * 0.05;
+            let deliveryCharge = totalPrice > 500 ? 0 : 40;
+            let finalAmount = totalPrice + tax + deliveryCharge;
+            let couponCode = document.getElementById("couponCode").value;
+    
+            if (couponCode === "DISCOUNT10") {
+                let discount = finalAmount * 0.10; // 10% discount
+                finalAmount -= discount;
+                document.getElementById("discountMsg").innerHTML = `🎉 You have saved ₹${discount.toFixed(2)}!`;
+            } else {
+                document.getElementById("discountMsg").innerHTML = `❌ Invalid Coupon`;
+            }
+    
+            document.getElementById("finalTotal").innerText = finalAmount.toFixed(2);
+        }
+    
+        function checkout() {
+            alert("Proceeding to Payment!");
+            localStorage.removeItem("cart"); // Clear cart after checkout
+        }
+    
+        updateCart(); // Load cart on page load
+    </script>
+    
+</body>
+</html>

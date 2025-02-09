@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu | Vinnie Inti Ruchulu</title>
+    <style>
+        /* Reset default margins and padding */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        /* Style for the navigation bar */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #B22222; /* Firebrick Red */
+            padding: 20px 25px;
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+
+        /* Logo styling */
+        .logo {
+            font-size: 28px;
+            font-weight: 700;
+            color: white;
+        }
+
+        /* Navigation links styling */
+        nav ul {
+            list-style: none;
+            display: flex;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            font-size: 18px;
+            padding: 8px 12px;
+            transition: 0.3s;
+        }
+
+        /* Hover effect for navbar */
+        nav ul li a:hover {
+            background-color: white;
+            color: #B22222;
+            border-radius: 5px;
+        }
+
+
+        /* Center Content */
+/* Body Styles */
+body {
+    background-color: #FFF5E1; /* Soft Beige */
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+/* Prevent Heading from Hiding Under Navbar */
+.content {
+    padding-top: 120px; /* Adjust this value based on your navbar height */
+}
+        
+/* Body Styles */
+body {
+    background-color: #FFF5E1; /* Soft Beige */
+    text-align: center;
+    margin: 0;
+    padding: 100;
+}
+
+/* Prevent Heading from Hiding Under Navbar */
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #FFF5E1;
+            text-align: center;
+            padding: 170px;
+        }
+
+        h1 {
+            color: #B22222;
+        }
+
+        .categories {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            max-width: 500px;
+            margin: auto;
+        }
+
+        .category {
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            width: 100%;
+            transition: transform 0.3s;
+        }
+
+        .category:hover {
+            transform: scale(1.05);
+        }
+
+        .category img {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        .category h3 {
+            color: #B22222;
+            margin-top: 10px;
+        }
+
+        .back-btn {
+            background: #B22222;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+            display: none;
+        }
+
+        .menu-container {
+            display: none;
+            max-width: 1000px;
+            margin: auto;
+        }
+
+
+.category {
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    width: 100%;
+    height: 250px; /* Fixed size */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    transition: transform 0.3s;
+}
+
+.category img {
+    width: 100%;
+    height: 150px; /* Fixed height */
+    object-fit: cover; /* Ensures images fill the space evenly */
+    border-radius: 10px;
+}
+
+.category h3 {
+    color: #B22222;
+    margin-top: 10px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .categories {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .categories {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+
+        .menu-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 items per row */
+    gap: 20px;
+    padding: 20px;
+}
+
+.menu-item {
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s;
+    width: 100%; 
+    height: 260px; /* Set a fixed height for uniform grid boxes */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.menu-item img {
+    width: 100%;
+    height: 150px; /* Fixed height */
+    object-fit: cover; /* Ensures all images fill the space without distortion */
+    border-radius: 10px;
+}
+
+.menu-item h3 {
+    color: #B22222;
+    margin: 10px 0;
+}
+
+.menu-item p {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+}
+
+
+        .menu-item {
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .menu-item:hover {
+            transform: scale(1.05);
+        }
+
+        .menu-item img {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        .menu-item h3 {
+            color: #B22222;
+            margin-top: 10px;
+        }
+
+        .menu-item p {
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .cart-controls {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .cart-btn {
+            background: #B22222;
+            color: white;
+            padding: 5px 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .cart-btn:hover {
+            background: #8B0000;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .menu-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .menu-grid {
+                grid-template-columns: repeat(1, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="cart.html">🛒 View Cart</a>
+    <!-- Navigation Bar -->
+    <nav>
+        <div class="logo">Vinnie Inti Ruchulu</div>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="menu.html">Menu</a></li>
+            <li><a href="book_table.html">Book a Table</a></li>
+            <li><a href="Celebrations.html">celebrations</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="location.html">Location</a></li>
+            <li><a href="rating.html">Rating</a></li>
+            <li><a href="login.html">Sigin/Signup</a></li>
+            <li><a href="cart.html">Cart</a></li>
+        </ul>
+    </nav>
+      <script src="cart.js"></script>
+
+    <h1>🔥 What's on your mind? 🔥</h1>
+
+    <div class="categories">
+        <div class="category" onclick="showMenu('Breakfast')">
+            <img src="bkfst.jpg" alt="Breakfast">
+            <h3>Breakfast</h3>
+        </div>
+        <div class="category" onclick="showMenu('starters')">
+            <img src="images\starters.jpg" alt="Starters">
+            <h3>Starters</h3>
+        </div>
+        <div class="category" onclick="showMenu('maincourse')">
+            <img src="biryani.jpg" alt="Main Course">
+            <h3>Main Course</h3>
+        </div>
+        <div class="category" onclick="showMenu('desserts')">
+            <img src="desserts.jpg" alt="Desserts">
+            <h3>Desserts</h3>
+        </div>
+        <div class="category" onclick="showMenu('beverages')">
+            <img src="bev_cat.jpg" alt="Beverages">
+            <h3>Beverages</h3>
+        </div>
+        <div class="category" onclick="showMenu(' Home made Cakes')">
+            <img src="images\cakes.jpg" alt="CHome made Cakes">
+            <h3>Home made Cakes</h3>
+        </div>
+    </div>
+    <button class="back-btn" onclick="goBack()">← Back to Categories</button>
+
+    <div class="menu-container" id="menu-items">
+        <h1 id="menu-title"></h1>
+
+        <div class="menu-section" id="Breakfast">
+            <div class="menu-grid">
+                <div class="menu-item">
+                    <img src="idli.jpg" alt="Dosa">
+                    <h3>Breakfast</h3>
+                    <p>₹50</p>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+                <div class="menu-item">
+                    <img src="dosa.jpg" alt="Idli">
+                    <h3>Breakfast</h3>
+                    <p>₹50</p>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="menu-section" id="starters">
+            <div class="menu-grid">
+                <div class="menu-item">
+                    <img src="paneer tikka.jpg" alt="Crispy Paneer Tikka">
+                    <h3>Crispy Paneer Tikka</h3>
+                    <p>₹199</p>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+                <div class="menu-item">
+                    <img src="spring_rolls.jpg" alt="Spring Rolls">
+                    <h3>Spring Rolls</h3>
+                    <p>₹149</p>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+                <div class="menu-item">
+                    <img src="chilli chicken.jpg" alt="Chilli Chicken">
+                    <h3>Chilli Chicken</h3>
+                    <p>₹229</p>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+                <div class="menu-item">
+                    <img src="paneeer.jpg" alt="Schezwan Paneer">
+                    <h3>Schezwan Paneer</h3>
+                    <p>₹189</p>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+                <div class="menu-item">
+                    <img src="lollipop.jpg" alt="Chicken Lollipop">
+                    <h3>Schezwan Paneer</h3>
+                    <p>₹189</p>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="menu-section" id="maincourse">
+            <div class="menu-grid">
+                <div class="menu-item">
+                    <img src="butter_chicken.jpg" alt="Butter Chicken">
+                    <h3>Butter Chicken</h3>
+                    <p>₹349</p>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+                <div class="menu-item">
+                    <img src="paneer_biryani.jpg" alt="Paneer Biryani">
+                    <h3>Paneer Biryani</h3>
+                    <p>₹299</p>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="menu-section" id="desserts">
+            <div class="menu-grid">
+                <div class="menu-item">
+                    <img src="cake_desserts.jpg" alt="Cakes">
+                    <h3>Cakes</h3>
+                    <p>₹179</p>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+                <div class="menu-item">
+                    <img src="ice_creams.jpg" alt="Ice cream">
+                    <h3>Ice cream</h3>
+                    <p>₹179</p>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+                <div class="menu-item">
+                    <img src="gulab_jam.jpg" alt="Gulab Jamun">
+                    <h3>Gulab Jamun</h3>
+                    <p>₹179</p>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="menu-section" id="beverages">
+            <div class="menu-grid">
+                <div class="menu-item">
+                    <img src="images\hotbev.jpg" alt="Hot Beverages">
+                    <h3>Hot Beverages</h3>
+                    <p>₹129</p>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+                <div class="menu-item">
+                    <img src="images\majj_bv.jpgtea.jpg" alt="Fresh Juices & Coolers">
+                    <h3>Fresh Juices & Coolers</h3>
+                    <p>₹129</p>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+                <div class="menu-item">
+                    <img src="images\majj_bv.jpgtea.jpg" alt="Fresh Juices & Coolers">
+                    <h3>Fresh Juices & Coolers</h3>
+                    <p>₹129</p>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+    <button class="back-btn" onclick="goBack()">← Back to Categories</button>
+
+    <div class="menu-container" id="menu-items">
+        <h1 id="menu-title"></h1>
+    </div>
+
+    <script>
+        let cart = {};
+
+        function showMenu(category) {
+            document.querySelector('.categories').style.display = 'none';
+            document.querySelector('.back-btn').style.display = 'block';
+            document.getElementById('menu-items').style.display = 'block';
+            document.querySelectorAll('.menu-section').forEach(section => section.style.display = 'none');
+            document.getElementById(category).style.display = 'block';
+        }
+
+        function goBack() {
+            document.querySelector('.categories').style.display = 'flex';
+            document.querySelector('.back-btn').style.display = 'none';
+            document.getElementById('menu-items').style.display = 'none';
+        }
+
+        function addToCart(item) {
+            if (!cart[item]) {
+                cart[item] = 1;
+            } else {
+                cart[item]++;
+            }
+            updateCartButton(item);
+        }
+
+        function removeFromCart(item) {
+            if (cart[item] > 1) {
+                cart[item]--;
+            } else {
+                delete cart[item];
+            }
+            updateCartButton(item);
+        }
+
+        function updateCartButton(item) {
+            const button = document.getElementById(`cart-${item}`);
+            if (cart[item]) {
+                button.innerHTML = `<button class='cart-btn' onclick='removeFromCart("${item}")'>-</button> ${cart[item]} <button class='cart-btn' onclick='addToCart("${item}")'>+</button>`;
+            } else {
+                button.innerHTML = `<button class='cart-btn' onclick='addToCart("${item}")'>Add to Cart</button>`;
+            }
+        }
+    document.addEventListener("DOMContentLoaded", function () {
+        const addToCartButtons = document.querySelectorAll(".add-to-cart");
+
+        addToCartButtons.forEach(button => {
+            button.addEventListener("click", function () {
+                const menuItem = this.parentElement;
+                const existingControls = menuItem.querySelector(".cart-controls");
+
+                if (!existingControls) {
+                    // Hide the "Add to Cart" button
+                    this.style.display = "none";
+
+                    // Create the quantity control div
+                    const cartControls = document.createElement("div");
+                    cartControls.classList.add("cart-controls");
+
+                    // Create minus button
+                    const minusButton = document.createElement("button");
+                    minusButton.innerText = "-";
+                    minusButton.classList.add("cart-btn");
+
+                    // Create quantity display
+                    const quantityDisplay = document.createElement("span");
+                    quantityDisplay.innerText = "1";
+                    quantityDisplay.classList.add("cart-quantity");
+
+                    // Create plus button
+                    const plusButton = document.createElement("button");
+                    plusButton.innerText = "+";
+                    plusButton.classList.add("cart-btn");
+
+                    // Append elements
+                    cartControls.appendChild(minusButton);
+                    cartControls.appendChild(quantityDisplay);
+                    cartControls.appendChild(plusButton);
+                    menuItem.appendChild(cartControls);
+
+                    let quantity = 1;
+
+                    // Minus button event
+                    minusButton.addEventListener("click", function () {
+                        if (quantity > 1) {
+                            quantity--;
+                            quantityDisplay.innerText = quantity;
+                        } else {
+                            // Remove cart controls and show "Add to Cart" again
+                            cartControls.remove();
+                            button.style.display = "inline-block";
+                        }
+                    });
+
+                    // Plus button event
+                    plusButton.addEventListener("click", function () {
+                        quantity++;
+                        quantityDisplay.innerText = quantity;
+                    });
+                }
+            });
+        });
+    });
+</script>
+
+<style>
+    .cart-controls {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-top: 10px;
+    }
+
+    .cart-btn {
+        background: #B22222;
+        color: white;
+        padding: 5px 10px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    .cart-btn:hover {
+        background: #8B0000;
+    }
+
+    .cart-quantity {
+        font-size: 18px;
+        font-weight: bold;
+    }
+</style>
+
+</body>
+</html>

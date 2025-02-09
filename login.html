@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vinnie Inti Ruchulu | Sign In / Sign Up</title>
+    <style>
+         /* Reset default margins and padding */
+         * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        /* Style for the navigation bar */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #B22222; /* Firebrick Red */
+            padding: 25px 25px;
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+
+        /* Logo styling */
+        .logo {
+            font-size: 28px;
+            font-weight: 700;
+            color: white;
+        }
+
+        /* Navigation links styling */
+        nav ul {
+            list-style: none;
+            display: flex;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            font-size: 18px;
+            padding: 8px 12px;
+            transition: 0.3s;
+        }
+
+        /* Hover effect for navbar */
+        nav ul li a:hover {
+            background-color: white;
+            color: #B22222;
+            border-radius: 5px;
+        }
+        * Placeholder Text */
+.placeholder-text {
+    font-size: 18px;
+    color: #333;
+    margin-top: 20px;
+    line-height: 1.7;
+    text-align: justify;
+    padding: 0 15%;
+}
+
+
+
+        /* Center Content */
+/* Body Styles */
+body {
+    background-color: #FFF5E1; /* Soft Beige */
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+/* Prevent Heading from Hiding Under Navbar */
+.content {
+    padding-top: 120px; /* Adjust this value based on your navbar height */
+}
+
+/* Body Styles */
+body {
+    background-color: #FFF5E1; /* Soft Beige */
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+/* Prevent Heading from Hiding Under Navbar */
+.content {
+    padding-top: 120px; /* Adjust this value based on your navbar height */
+}
+
+
+
+        /* Responsive Navigation */
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                align-items: center;
+                padding: 15px 0;
+            }
+
+            nav ul {
+                flex-direction: column;
+                padding: 10px 0;
+            }
+
+            nav ul li {
+                margin: 10px 0;
+            }
+        }
+        /* General Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(135deg, white);
+            transition: 0.5s;
+        }
+
+        /* Heading Outside the Box */
+        .login-heading {
+            font-size: 26px;
+            font-weight: 700;
+            color: #B22222;
+            text-align: center;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Container */
+        .container {
+            width: 100%;
+            max-width: 400px;
+            background: white;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            border-radius: 15px;
+            text-align: center;
+            transition: 0.3s;
+        }
+
+        /* Form Title */
+        h2 {
+            margin-bottom: 10px;
+            color: #B22222;
+            font-size: 26px;
+            font-weight: 600;
+        }
+
+        /* Input Fields */
+        .input-field {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            outline: none;
+            transition: 0.3s;
+        }
+
+        .input-field:focus {
+            border-color: #B22222;
+            box-shadow: 0 0 8px rgba(178, 34, 34, 0.5);
+        }
+
+        /* Button */
+        .btn {
+            width: 100%;
+            padding: 12px;
+            background: #B22222;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 18px;
+            transition: 0.3s;
+            margin-top: 10px;
+        }
+
+        .btn:hover {
+            background: #8B0000;
+        }
+
+        /* Toggle Text */
+        p {
+            margin-top: 15px;
+            font-size: 14px;
+            color: #B22222;
+        }
+
+        a {
+            color: #B22222;
+            cursor: pointer;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <!-- Heading Positioned Outside the Box -->
+    <p class="login-heading">🔥 Taste the Tradition. Sign In & Order Your Favorites! 🍽️</p>
+    
+    <div class="container">
+        <h2 id="form-title">Sign In</h2>
+        <form id="form">
+            <input type="text" id="name" placeholder="Full Name" class="input-field" style="display: none;">
+            <input type="email" id="email" placeholder="Email" class="input-field" required>
+            <input type="password" id="password" placeholder="Password" class="input-field" required>
+            <button type="submit" class="btn">Submit</button>
+        </form>
+        <p id="toggle-text">Don't have an account? <a href="#" id="toggle-btn">Sign Up</a></p>
+    </div>
+    <!-- Navigation Bar -->
+    <nav>
+        <div class="logo">Vinnie Inti Ruchulu</div>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="menu.html">Menu</a></li>
+            <li><a href="book_table.html">Book a Table</a></li>
+            <li><a href="celebrations.html">Celebrations</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="location.html">Location</a></li>
+            <li><a href="rating.html">Rating</a></li>
+            <li><a href="login.html">Sign In/Sign Up</a></li>
+            <li><a href="cart.html">Cart</a></li>
+        </ul>
+    </nav>
+
+     <script>
+        const formTitle = document.getElementById("form-title");
+        const nameField = document.getElementById("name");
+        const toggleText = document.getElementById("toggle-text");
+        const toggleBtn = document.getElementById("toggle-btn");
+        const form = document.getElementById("form");
+
+        let isSignUp = false;
+
+        toggleBtn.addEventListener("click", (event) => {
+            event.preventDefault(); // Prevent page reload
+            isSignUp = !isSignUp;
+
+            if (isSignUp) {
+                formTitle.textContent = "Sign Up";
+                nameField.style.display = "block";
+                toggleText.innerHTML = `Already have an account? <a href="#" id="toggle-btn">Sign In</a>`;
+            } else {
+                formTitle.textContent = "Sign In";
+                nameField.style.display = "none";
+                toggleText.innerHTML = `Don't have an account? <a href="#" id="toggle-btn">Sign Up</a>`;
+            }
+        });
+
+        // Redirect after successful login
+        form.addEventListener("submit", (event) => {
+            event.preventDefault(); // Prevent actual form submission
+
+            // Simulating login success - Redirect to home page
+            window.location.href = "index.html"; // Change to your actual homepage URL
+        });
+    </script>
+</body>
+</html>
